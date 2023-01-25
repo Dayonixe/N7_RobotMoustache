@@ -49,3 +49,7 @@ make release
 # Launch the robot
 /home/robot/ev3dev-c/eg/robot_isae/Release/robot_isae
 ```
+
+<p align="center">
+  <img src="/doc/robot.jpg" alt="robot" width="700"/>
+</p>
