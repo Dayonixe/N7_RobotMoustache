@@ -8,19 +8,44 @@ Team : Nouhaila A. & Théo Pirouelle
 
 ---
 
+## Installation de Lustre
+
+
+[Lien de téléchargement](https://www-verimag.imag.fr/DIST-TOOLS/SYNCHRONE/lustre-v4/distrib/index.html)
+
+Commandes pour pouvoir utiliser les commandes Lustre :
+
 ```sh
-export LUSTRE_INSTALL=/home/theo/Documents/Lustre/lustre-v4-III-ea-linux64/
+export LUSTRE_INSTALL=[chemin_vers_le_repertoire]/lustre-v4-III-ea-linux64/
 source $LUSTRE_INSTALL/setenv.sh
 ```
 
-```sh
-make release  # Compiler
-/home/robot/ev3dev-c/eg/robot_isae/Release/robot_isae  # Lancer le robot
-```
+## Utilisation du robot
+
+Le robot se connecte au PC host via un port USB.
+Sur le PC Host, dans les paramètres réseaux, aller dans la connexion réseau Ethernet USB, dans les paramètres de la connexion filaire et dans IPV4, sélectionner « réseau local uniquement », désactiver DNS et Routes.
+
+Sur le PC host :
 
 ```sh
-lus2c tp3_robot.lus main_robot  # Compiler
-scp main_robot.c robot@169.254.184.121:ev3dev-c/eg/robot_isae/.  # Envoi fichier
-scp main_robot.h robot@169.254.184.121:ev3dev-c/eg/robot_isae/.  # Envoi fichier
-scp main_robot_ext.h robot@169.254.184.121:ev3dev-c/eg/robot_isae/.  # Envoi fichier
+# Compiler
+lus2c tp3_robot.lus main_robot
+
+# Envoi des fichiers
+scp main_robot.c robot@[adresse_ip_du_robot]:ev3dev-c/eg/robot_isae/.
+scp main_robot.h robot@[adresse_ip_du_robot]:ev3dev-c/eg/robot_isae/.
+scp main_robot_ext.h robot@[adresse_ip_du_robot]:ev3dev-c/eg/robot_isae/.
+```
+
+Sur le robot :
+
+```sh
+# Accéder au robot
+ssh robot@[adresse_ip_du_robot]
+
+# Compiler
+make release
+
+# Lancer le robot
+/home/robot/ev3dev-c/eg/robot_isae/Release/robot_isae
 ```
