@@ -1,4 +1,4 @@
-# Project - Robot Lego
+# Project - Robot Moustache
 
 Team : Nouhaila A. & Théo Pirouelle
 
